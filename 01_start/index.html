@@ -7,6 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   </head>
   <body>
+    <h1>はじめに</h1>
+    <h2>宣言的レンダリング</h2>
     <div id="app">
       {{ message }}
     </div>
@@ -16,8 +18,14 @@
         to see my dynamically bound title!
       </span>
     </div>
+    <h2>条件分岐とループ</h2>
     <div id="app3">
       <span v-if="seen">Now you see me</span>
+    </div>
+    <div id="app4">
+      <ol>
+        <li v-for="todo in todos">{{ todo.text }}</li>
+      </ol>
     </div>
     <script src="index.js"></script>
   </body>
