@@ -36,6 +36,12 @@
       <p>{{ message }}</p>
       <input v-model="message">
     </div>
+    <h2>コンポーネントによる構成</h2>
+    <div id="app7">
+      <ol>
+        <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+      </ol>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
