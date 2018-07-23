@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <h1>Vue インスタンス</h1>
+    <h2>Vue インスタンスの作成</h2>
+    <div id="app1">
+      <p>{{ foo }}</p>
+      <!-- `foo` はfreezeされているため更新しない -->
+      <button v-on:click="foo = 'baz'">Change it</button>
+    </div>
+    <h2>インスタンスライフサイクルフック</h2>
+    <div id="app2">
+      <p>{{ hoge }}</p>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
