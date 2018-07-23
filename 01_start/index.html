@@ -27,6 +27,15 @@
         <li v-for="todo in todos">{{ todo.text }}</li>
       </ol>
     </div>
+    <h2>ユーザー入力の制御</h2>
+    <div id="app5">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+    <div id="app6">
+      <p>{{ message }}</p>
+      <input v-model="message">
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
