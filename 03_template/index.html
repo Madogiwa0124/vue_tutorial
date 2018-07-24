@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <h1>テンプレート構文</h1>
+    <h2>展開</h2>
+    <div id="app1">
+      <p><span>Message: {{ msg }}</span></p>
+      <p><span v-once>This will never change: {{ msg }}</span></p>
+      <p>Using mustaches: {{ html }}</p>
+      <p>Using v-html directive: <span v-html="html"></span></p>
+      <p><div v-bind:id="dynamicId">hoge</div></p>
+      <button v-bind:disabled="disabled">Button</button>
+      <p>{{ disabled ? '表示' : '非表示' }}</p>
+      <p>{{ msg.split('').reverse().join('') }}</p>
+      <div v-bind:id="'list-' + dynamicId">{{ 'list-' + dynamicId }}</div>
+    </div>
+    <h2>ディレクティブ</h2>
+    <div id="app2">
+      <p><span v-if="seen">seen is true</span></p>
+      <p><a v-bind:href="url">link to google</a></p>
+      <p><span v-on:click="flashAleart">click here!!</span></p>
+      <p>
+        <form v-on:submit.prevent="flashAleart">
+          <input type="text" name="hoge">
+          <button type="submit">hoge</button>
+        </form>
+      </p>
+      <p><a :href="url">link to google</a></p>
+      <p><span @click="flashAleart">click here!!</span></p>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
