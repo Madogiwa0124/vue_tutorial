@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <h1>クラスとスタイルのバインディング</h1>
+    <h2>HTML クラスのバインディング</h2>
+    <div id="example1" class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">
+      example1
+    </div>
+    <div id="example2" class="static" v-bind:class="classObject">
+      example2
+    </div>
+    <div id="example3" class="static" v-bind:class="classObject">
+      example3
+    </div>
+    <div id="example4" v-bind:class="[activeClass, errorClass]">
+      example4
+    </div>
+    <div id="example5" v-bind:class="[isActive ? activeClass : '', errorClass]">
+      example5
+    </div>
+    <div id="example6" v-bind:class="[{ active: isActive }, errorClass]">
+      example6
+      <my-component class="baz boo" :class="{ active: isActive }"></my-component>
+    </div>
+    <h2>インラインスタイルのバインディング</h2>
+    <div id="example7">
+      <span :style="styleObject">sample1</span>
+      <span :style="{ color: color, fontSize: fontSize }">sample2</span>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
