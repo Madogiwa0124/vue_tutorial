@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <h1>リストレンダリング</h1>
+    <h3>v-for で配列に要素をマッピングする</h3>
+    <ul id="app1">
+      <li v-for="item in items">{{ item.message }}</li>
+      <li v-for="(item, index) in items">{{ parentMassage }}:{{ index }}:{{ item.message }}</li>
+    </ul>
+    <h3>オブジェクトの v-for</h3>
+    <ul id="app2">
+      <li v-for="property in object">{{ property }}</li>
+      <li v-for="(property, key) in object">{{ key }} : {{ property }}</li>
+      <li v-for="(property, key, index) in object">{{ index }} : {{ key }} : {{ property }}</li>
+    </ul>
+    <h3>key</h3>
+    <ul id="app3">
+      <li v-for="item in items" :key="item.id">{{ item.message }}</li>
+    </ul>
+    <h3>フィルタ/ソートされた結果の表示</h3>
+    <ul id="app4">
+      <li v-for="n in evenNumbers">{{ n }}</li>
+      <li v-for="n in even(numbers)">{{ n }}</li>
+    </ul>
+    <h3>範囲付きv-for</h3>
+    <div id="app5">
+      <span v-for="n in 10">{{ n }}</li>
+    </div>
+    <h3>v-for と v-if</h3>
+    <div id="app6">
+      <ul>
+        <li v-for="num in numbers" v-if="isOdd(num)">{{ num }}</li>
+      </ul>
+      <ul v-if="isActive">
+        <li v-for="num in numbers">{{ num }}</li>
+      </ul>
+      <span v-else>not active!!</span>
+    </div>
+    <h3>コンポーネントと v-for</h3>
+    <div id="todo-list-example">
+      <form v-on:submit.prevent="addNewTodo">
+        <label for="new-todo">Add a todo</label>
+        <input v-model="newTodoText" id="new-todo" placeholder="example...">
+        <button>Add</button>
+      </form>
+      <ul>
+        <!-- <li is="todo-item" v-for="(todo, index) in todos" :key="todo.id" :title="todo.title" v-on:remove="todos.splice(index, 1)"></li> -->
+        <todo-item v-for="(todo, index) in todos" :key="todo.id" :title="todo.title" v-on:remove="todos.splice(index, 1)"></todo-item>
+      </ul>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
