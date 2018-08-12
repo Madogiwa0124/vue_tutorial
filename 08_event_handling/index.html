@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <h1>イベントハンドリング</h1>
+    <h3>イベントの購読</h3>
+    <div id="app1">
+      The button above has been clicked {{counter}} times.
+      <button v-on:click="counter += 1"> + 1</button>
+    </div>
+    <h3>メソッドイベントハンドラ</h3>
+    <div id="app2">
+      <!-- `greet` は、あらかじめ定義したメソッドの名前 -->
+      <button v-on:click="greet">Greet</button>
+    </div>
+    <h3>インラインメソッドハンドラ</h3>
+    <div id="app3">
+      <button v-on:click="say('hi')">Say hi</button>
+      <button v-on:click="say('what')">Say what</button>
+      <button v-on:click="warn('Form cannot be submitted yet.', $event)">warn</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
