@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <h1>フォーム入力バインディング</h1>
+    <h3>基本的な使い方</h3>
+    <div id="app1">
+      <div>
+        <input v-model="message1" placeholder="edit me">
+        <p>Message is: {{ message1 }}</p>
+      </div>
+      <div>
+        <span>Multiline message is:</span>
+        <p style="white-space: pre-line;">{{ message2 }}</p>
+        <br>
+        <textarea v-model="message2" placeholder="add multiple lines"></textarea>  
+      </div>
+      <br>
+      <div>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+      </div>
+      <br>
+      <div>
+        <input type="checkbox" value="Jack" v-model="checkedNames">Jack
+        <input type="checkbox" value="John" v-model="checkedNames">John
+        <input type="checkbox" value="Mike" v-model="checkedNames">Mike
+        <p><label for="checkbox">checked Names : {{checkedNames}}</label></p>
+      </div>
+      <div>
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="one">Two</label>
+        <p>Picked : {{picked}}</p>
+      </div>
+      <div>
+        <select v-model="selected">
+          <option disabled value="">Please select one</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <select v-model="selected" multiple>
+          <option disabled value="">Please select one</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <select v-model="selected">
+          <option v-for="option in options" :value="option.value">{{ option.text }}</option>
+        </select>
+        <p>Selected : {{ selected }}</p>
+        <br>
+      </div>
+    </div>
+    <h3>値のバインド</h3>
+    <div id="app2">
+      <div>
+        <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
+        <p>value : {{toggle}}</p>
+      </div>
+      <div>
+        <input type="radio" v-model="pick" :value="pick_val">
+        <p>value : {{pick}}</p>
+      </div>
+      <div>
+        <select v-model="selected">
+          <option :value="{ number: 123 }">123</option>
+        </select>
+        <p>value : {{selected}}</p>
+      </div>
+      <div>
+        <input v-model.lazy="msg">
+        <p>value : {{msg}}</p>
+      </div>
+      <div>
+        <input v-model.number="age">
+        <p>age : {{age}}</p>
+      </div>
+      <div>
+        <input v-model.trim="msg">
+        <p>age : {{msg}}</p>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
