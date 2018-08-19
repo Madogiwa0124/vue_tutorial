@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <h1>コンポーネントの基本</h1>
+    <h3>基本例</h3>
+    <div id="components-demo">
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <blog-post 
+        :key="post.id"
+        :post="post"
+        v-for="post in posts" >
+      </blog-post>
+    </div>
+    <h3>イベントとメッセージを親コンポーネントに送出する</h3>
+    <div id="blog-posts-events-demo">
+      <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post
+          :key="post.id"
+          :post="post"
+          v-for="post in posts"
+          @enlarge-text="onEnlargeText(0.1)">
+        </blog-post>
+      </div>
+      <custom-input v-model="searchText"></custom-input>
+      <p>searchText: {{searchText}}</p>
+    </div>
+    <div id="app1">
+      <h3>スロットによるコンテンツ配信</h3>
+      <alert-box>
+        Something bad happened.
+      </alert-box>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
