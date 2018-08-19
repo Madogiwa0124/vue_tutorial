@@ -6,12 +6,22 @@ Vue.component('button-counter', {
 })
 
 Vue.component('blog-post', {
+  data: function () {
+    return {
+      postFontSize: 1.5
+    }
+  },
   props: ['post'],
+  methods: {
+    onEnlargeText: function (enlargeAmount) {
+      this.postFontSize += enlargeAmount
+    }
+  },
   template: `
-  <div class="blog-post">
+  <div class="blog-post"  :style="{ fontSize: postFontSize + 'em' }">
     <h3>{{ post.title }}</h3>
     <div v-html="post.content"></div>
-    <button @click="$emit('enlarge-text')">
+    <button @click="onEnlargeText(0.1)">
       Enlarge text
     </button>
   </div>
@@ -47,13 +57,7 @@ new Vue({
       { id: 2, title: 'My journey with vue2', content: '<i>content 2</i>' },
       { id: 3, title: 'My journey with vue3', content: 'content 3' }
     ],
-    postFontSize: 1.5,
     searchText: ''
-  },
-  methods: {
-    onEnlargeText: function (enlargeAmount) {
-      this.postFontSize += enlargeAmount
-    }
   }
 })
 

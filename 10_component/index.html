@@ -21,12 +21,12 @@
     </div>
     <h3>イベントとメッセージを親コンポーネントに送出する</h3>
     <div id="blog-posts-events-demo">
-      <div :style="{ fontSize: postFontSize + 'em' }">
+      <div>
         <blog-post
           :key="post.id"
           :post="post"
           v-for="post in posts"
-          @enlarge-text="onEnlargeText(0.1)">
+        >
         </blog-post>
       </div>
       <custom-input v-model="searchText"></custom-input>
